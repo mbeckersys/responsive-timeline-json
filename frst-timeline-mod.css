@@ -24,6 +24,7 @@ a {
     max-width: 1200px;
     padding: 0 15px;
     margin: 0 auto;
+    line-height:1.2em;
 }
 
 .frst-container {
@@ -43,10 +44,11 @@ a {
     max-width: 992px;
 }
 
+/*
 .frst-container.content-right-align,
 .frst-container.content-left-align {
     max-width: 678px;
-}
+}*/
 
 .clearfix::after,
 .container::after {
