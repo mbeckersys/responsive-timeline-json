@@ -18,7 +18,7 @@
     position: relative;
     min-height: 16px;
     padding-left: 35px;
-    padding-right: 35px
+    /*padding-right: 35px*/
 }
 .frst-timeline-block::before {
     content: "";

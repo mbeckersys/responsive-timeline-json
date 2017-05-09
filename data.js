@@ -1,13 +1,13 @@
 // JSON object feeding Martin's timeline generator
 var data = [
-	{
+    {
 		date: '2017-05-22',
-        time: '09:30-10:15',
+        time: '09:30',
         title: 'Opening Remarks',
         person: 'Organizers and Prof. Sanjoy Mitter',
 		body: []
 	},
-    
+        
     {
 		date: '2017-05-22',
         time: '10:15-11:00',
@@ -17,6 +17,14 @@ var data = [
 			tag: 'p',
 			content: 'We introduce a novel notion of invariance feedback entropy to quantify the state information that is required by any controller that enforces a given subset of the state space to be invariant. We establish a number of elementary properties, e.g. we provide conditions that ensure that the invariance feedback entropy is finite and show that for the deterministic case, we recover the well-known notion of entropy for deterministic control systems. We prove the data rate theorem, which shows that the invariance entropy is a tight lower bound of the data rate of any coder-controller that achieves invariance in the closed loop. We analyze uncertain linear control systems and derive a universal lower bound of the invariance feedback entropy. The lower bound depends on the absolute value of the determinant of the system matrix and a ratio involving the volume of the invariant set and the set of uncertainties.'
 		}]
+	},
+    
+    {
+		date: '2017-05-22',
+        time: '09:30-10:15',
+        title: 'Information and Communication Theory in Control Systems: Looking Back and Looking Ahead',
+        person: 'Sanjoy Mitter (EECS, MIT)',
+		body: []
 	},
     
     {
@@ -218,8 +226,16 @@ var data = [
 			content: 'TBA'
 		}]
 	},
+    
+    {
+		date: '2017-05-23',
+        time: '16:45-18:00',
+        title: 'Discussions and Wrap-up Session',
+        body: []
+	},
 ];
 
+//optionally, provide new language yourself:
 $.fn.rcsTimeline.languages = {
 	"es-ES": {
 		days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],

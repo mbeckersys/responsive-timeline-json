@@ -16,9 +16,18 @@
             console.warn(translations.msgEmptyContent);
             return
         }
-        data = data.sort(function(datestring, format) {
-            return (all_settings.sortDesc) ? (Date.parse(format['time']) - Date.parse(datestring['time'])) : (Date.parse(datestring['time']) - Date.parse(format['time']))
-        });
+        
+        if (all_settings.sorting) {
+            data = data.sort(function(a, b) {
+                // time might be format in "hh:mm-hh:mm" -> match first one
+                tima = a['time'].match(/\d\d?:\d\d/g)[0]
+                timb = b['time'].match(/\d\d?:\d\d/g)[0]
+                dta = new Date(a['date'] + 'T' + tima + ":00Z")
+                dtb = new Date(b['date'] + 'T' + timb + ":00Z")
+                return (all_settings.sortDesc) ? dtb - dta : dta - dtb
+            });
+        }
+
         var timeline_menu_parent = $('<div>')
         timeline_menu_parent.append($('<h2>').text(all_settings.menuTitle))
         var timeline_menu = $("<ul>").attr("id", "timeline-menu");
@@ -52,7 +61,7 @@
             var block_content = $("<div>").addClass("frst-timeline-content animated zoomInRight");
             var article_text = $("<div>").addClass("frst-timeline-content-inner");
 
-            // render elements of body            
+            // render elements of body
             article_text.append($('<span>').addClass('frst-date').text(jsonentry.time))
             article_text.append($('<span>').addClass('title-section').text(jsonentry.title))
             if (jsonentry.person) {
@@ -97,6 +106,7 @@
         language: "en-US",
         formatDate: 1,
         sortDesc: false,
+        sorting : true,
         menuTitle: 'Overview'
     };
 
